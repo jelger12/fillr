@@ -3,8 +3,12 @@
 
 # fillr
 
-The goal of fillr is to edit vectors to fill missing values, based on
-the vector itself.
+<!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.org/jelger12/fillr.svg?branch=master)](https://travis-ci.org/jelger12/fillr)
+<!-- badges: end --> The goal of fillr is to edit vectors to fill
+missing values, based on the vector itself.
 
 ## Installation
 
