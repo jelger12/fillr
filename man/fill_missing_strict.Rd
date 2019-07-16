@@ -4,16 +4,20 @@
 \alias{fill_missing_strict}
 \title{Fill missing strict}
 \usage{
-fill_missing_strict(x)
+fill_missing_strict(x, min_known_n = NULL, min_known_p = NULL)
 }
 \arguments{
 \item{x}{The vector to fill}
+
+\item{min_known_n}{numeric value: the minimum number of not-missing values}
+
+\item{min_known_p}{numeric value between 0 and 1: the minimum fraction of not-missing values}
 }
 \value{
 a filled vector
 }
 \description{
-Fill all missing values in a vector with the same value if it is known. Only
+Fill all missing values in a vector with the same value if it is known. Onlx_na_omit
 fills the value when all known values are the same
 }
 \examples{
