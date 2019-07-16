@@ -20,7 +20,7 @@ fill_missing_strict <- function(x) {
     ## Only fill missing if all non-missing values are the same
     if (length(unique(y)) == 1) {
         ## use coalesce with the only non- missing value
-        x <- dplyr::coalesce(x, y[1])
+        x <- coalesce2(x, y[1])
     }
     x
 }

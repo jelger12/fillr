@@ -14,7 +14,5 @@ Suggests:
     testthat
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Imports: 
-    dplyr
 URL: https://github.com/jelger12/fillr
 BugReports: https://github.com/jelger12/fillr/issues

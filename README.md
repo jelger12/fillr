@@ -3,15 +3,15 @@
 
 # fillr
 
-The goal of fillr is to …
+The goal of fillr is to edit vectors to fill missing values, based on
+the vector itself.
 
 ## Installation
 
-You can install the released version of fillr from
-[CRAN](https://CRAN.R-project.org) with:
+You can install fillr from with:
 
 ``` r
-install.packages("fillr")
+devtools::install_github("jelger12/fillr")
 ```
 
 ## Example
