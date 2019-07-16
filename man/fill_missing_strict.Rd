@@ -17,7 +17,7 @@ fill_missing_strict(x, min_known_n = NULL, min_known_p = NULL)
 a filled vector
 }
 \description{
-Fill all missing values in a vector with the same value if it is known. Onlx_na_omit
+Fill all missing values in a vector with the same value if it is known. Only
 fills the value when all known values are the same
 }
 \examples{

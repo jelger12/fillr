@@ -1,7 +1,6 @@
-#' Fill missing strict
+#' Fill missing maximum
 #'
-#' Fill all missing values in a vector with the same value if it is known. Only
-#' fills the value when all known values are the same
+#' Fill all missing values in a vector with the maximum value if it is known.
 #' @param x The vector to fill
 #' @param min_known_n numeric value: the minimum number of not-missing values
 #' @param min_known_p numeric value between 0 and 1: the minimum fraction of not-missing values
@@ -10,8 +9,9 @@
 #' @export
 #'
 #' @examples
-#' fill_missing_strict(c(NA, 1))
-fill_missing_strict <- function(x, min_known_n = NULL, min_known_p = NULL) {
+#' fill_missing_max(c(1, 2, NA))
+#' fill_missing_max(c(NA, 1, 2, NA))
+fill_missing_max <- function(x, min_known_n = NULL, min_known_p = NULL) {
     ## Check if missing values can and should be filled
     if(!check_some_missing(x)) {
         return(x)
@@ -25,5 +25,5 @@ fill_missing_strict <- function(x, min_known_n = NULL, min_known_p = NULL) {
         return(x)
     }
 
-    fill_vector.strict(x, x_na_omit)
+    fill_vector.max(x, x_na_omit)
 }

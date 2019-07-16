@@ -2,4 +2,9 @@
 
 export(check_some_missing)
 export(coalesce2)
+export(fill_missing_last)
+export(fill_missing_max)
+export(fill_missing_min)
+export(fill_missing_previous)
 export(fill_missing_strict)
+export(fill_value)
