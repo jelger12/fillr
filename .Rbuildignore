@@ -1,2 +1,4 @@
+^LICENSE\.md$
+^README\.Rmd$
 ^fillr\.Rproj$
 ^\.Rproj\.user$
