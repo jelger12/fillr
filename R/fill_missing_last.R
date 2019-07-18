@@ -12,18 +12,5 @@
 #' fill_missing_last(c(1, 2, NA))
 #' fill_missing_last(c(NA, 1, 2, NA))
 fill_missing_last <- function(x, min_known_n = NULL, min_known_p = NULL) {
-    ## Check if missing values can and should be filled
-    if(!check_some_missing(x)) {
-        return(x)
-    }
-
-    ## Create vector without mising values
-    x_na_omit <- stats::na.omit(x)
-
-    ## Check if the minimum known n and percentage criteria are matched
-    if(!check_min_known(x, x_na_omit, min_known_n, min_known_p)) {
-        return(x)
-    }
-
-    fill_vector.last(x, x_na_omit)
+    fill_missing(x, min_known_n, min_known_p, type = "last")
 }

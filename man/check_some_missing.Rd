@@ -13,8 +13,7 @@ check_some_missing(x)
 TRUE or FALSE
 }
 \description{
-Check if some missing values are present, but not all are missing. returns a boolean
-}
-\examples{
-check_some_missing(c(NA, 1))
+Check if some missing values are present, but not all are missing.
+returns a boolean. This check is done to save time for vectors where filling
+is not needed
 }
