@@ -1,12 +1,12 @@
 Package: fillr
-Title: Fill missing values in vectors
+Title: Fill Missing Values in Vectors
 Version: 0.1.0.9000
 Authors@R: 
     person(given = "Jelger",
            family = "van Zaane",
            role = c("aut", "cre"),
            email = "j.d.van.zaane@vu.nl")
-Description: This package edits vectors to fill missing values, based on the vector itself.
+Description: Edit vectors to fill missing values, based on the vector itself.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

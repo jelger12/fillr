@@ -1,7 +1,7 @@
 #' fill missing value
 #'
 #' Returns a vector with all missing values filled with another value
-#' @param x vectors. All imputs should have the same length
+#' @param x vectors. All inputs should have the same length
 #' @param value a value with the same class as x
 #' @return vector with the same length as the first vector
 #' @export

@@ -7,7 +7,7 @@
 fill_value(x, value)
 }
 \arguments{
-\item{x}{vectors. All imputs should have the same length}
+\item{x}{vectors. All inputs should have the same length}
 
 \item{value}{a value with the same class as x}
 }

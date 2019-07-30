@@ -9,7 +9,7 @@ fill_vector_last(x, x_na_omit)
 \arguments{
 \item{x}{the vector to be filled}
 
-\item{x_na_omit}{the x vector without na's}
+\item{x_na_omit}{the x vector without NA values}
 }
 \description{
 fill_vector_last
