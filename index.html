@@ -78,28 +78,36 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>Fillr is an R packae. The goal of fillr is to edit vectors to fill missing values, based on the vector itself. These functions are best used on variables within a grouped data frame.</p>
+<p>Fillr is an R package. The goal of fillr is to edit vectors to fill missing values, based on the vector itself. These functions are best used on variables within a grouped data frame.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install fillr from with:</p>
+<p>You can install fillr from github with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"jelger12/fillr"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>When you want to fill values in a vector with another value, the fillr functions can be used to impute all NA’s based on some set rules.</p>
+<p>When you want to fill values in a vector with another value, the fillr functions can be used to impute all NA values based on some set rules.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">## basic example code</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_min">fill_missing_min</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>))</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] 1 2 1 1 1</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_max">fill_missing_max</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>))</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; [1] 1 2 1 1 2</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_strict">fill_missing_strict</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>))</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; [1] 1 1 1 1 1</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">## Fill the NA with the minimum, maximum or last value</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_min">fill_missing_min</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; [1] 1 2 1 1 1</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_max">fill_missing_max</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; [1] 1 2 1 1 2</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_last">fill_missing_last</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] 1 2 1 2 2</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_previous">fill_missing_previous</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>))</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; [1] 1 1 1 2 2</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">## Fill the NA with the same value, only when all non-NA values are the same</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_strict">fill_missing_strict</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; [1] 1 1 1 1 1</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_strict">fill_missing_strict</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"a"</span>, <span class="ot">NA</span>, <span class="st">"a"</span>, <span class="st">"a"</span>, <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; [1] "a" "a" "a" "a" "a"</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">## Fill the NA with the previous value (repeating with multiple repeating NA)</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">fillr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fillr/topics/fill_missing_previous">fill_missing_previous</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>, <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; [1] 1 1 1 2 2 2</span></a></code></pre></div>
 </div>
 </div>
   </div>
