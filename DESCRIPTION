@@ -1,6 +1,6 @@
 Package: fillr
 Title: Fill Missing Values in Vectors
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: 
     person(given = "Jelger",
            family = "van Zaane",
