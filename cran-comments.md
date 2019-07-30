@@ -1,6 +1,6 @@
 ## Test environments
 * local Windows install, R 3.6.1
-* Ubuntu 14.04 (on travis-ci), (oldrel, release and devel) 
+* Ubuntu 14.04 (on travis-ci), (release and devel)
 
 ## R CMD check results
 * There were no ERRORs, WARNINGs or NOTEs

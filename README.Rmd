@@ -32,18 +32,18 @@ devtools::install_github("jelger12/fillr")
 
 When you want to fill values in a vector with another value, the fillr functions can be used to impute all NA values based on some set rules.
 
-```{r example}
-## basic example code
-
-## Fill the NA with the minimum, maximum or last value
+Fill the NA with the minimum, maximum or last value
+```{r example1}
 fillr::fill_missing_min(c(1, 2, 1, 1, NA))
 fillr::fill_missing_max(c(1, 2, 1, 1, NA))
 fillr::fill_missing_last(c(1, NA, 1, 2, NA))
-
-## Fill the NA with the same value, only when all non-NA values are the same
+```
+Fill the NA with the same value, only when all non-NA values are the same
+```{r example2}
 fillr::fill_missing_strict(c(1, NA, 1, 1, NA))
 fillr::fill_missing_strict(c("a", NA, "a", "a", NA))
-
-## Fill the NA with the previous value (repeating with multiple repeating NA)
+```
+Fill the NA with the previous value (repeating with multiple repeating NA)
+```{r example3}
 fillr::fill_missing_previous(c(1, NA, 1, 2, NA, NA))
 ```
