@@ -4,10 +4,20 @@ language: R
 sudo: false
 cache: packages
 
+os:
+  - linux
+  - osx
+
+r:
+  - oldrel
+  - release
+  - devel
+
 r_packages:
   - covr
 
 before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
+
 deploy:
   provider: script
   script: Rscript -e 'pkgdown::deploy_site_github()'
