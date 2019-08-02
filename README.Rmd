@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(fillr)
 ```
 # fillr
 <!-- badges: start -->
@@ -23,51 +24,34 @@ Fillr is an R package. The goal of fillr is to edit vectors to fill missing valu
 ## Installation
 
 Fillr is on CRAN, you can install the stable release using
-``` r
+```{r eval=FALSE}
+# Install release version from CRAN
 intall.packages("fillr")
-```
 
-Alternatively, you can install the development version from github with
-
-``` r
+# Install development version from GitHub
 devtools::install_github("jelger12/fillr")
 ```
 
 ## Example
-```{r library, message=FALSE, warning=FALSE, include=FALSE}
-library(tibble)
-library(dplyr)
-```
+
 When you want to fill values in a vector with another value, the fillr functions can be used to impute all NA values based on some set rules.
 
 Fill the NA values with the minimum, maximum or last value
 ```{r example_min_max_last}
-fillr::fill_missing_min(c(1, 2, 1, 1, NA))
-fillr::fill_missing_max(c(1, 2, 1, 1, NA))
-fillr::fill_missing_last(c(1, NA, 1, 2, NA))
+fill_missing_min(c(1, 2, 1, 1, NA))
+fill_missing_max(c(1, 2, 1, 1, NA))
+fill_missing_last(c(1, NA, 1, 2, NA))
 ```
 Fill the NA values with the same value, only when all non-NA values are the same
 ```{r example_strict}
-fillr::fill_missing_strict(c(1, NA, 1, 1, NA))
-fillr::fill_missing_strict(c("a", NA, "a", "a", NA))
+fill_missing_strict(c(1, NA, 1, 1, NA))
+fill_missing_strict(c("a", NA, "a", "a", NA))
 ```
 Fill the NA values with the previous value (repeating with multiple repeating NA values)
 ```{r example_previous}
-fillr::fill_missing_previous(c(1, NA, 1, 2, NA, NA))
+fill_missing_previous(c(1, NA, 1, 2, NA, NA))
 ```
 
 ## Example within a grouped data frame
 Fillr is best used within a grouped data frame. You can use the `fill_missing_` functions to fill the missing values within the groups.
 
-```{r example_df}
-df <- tibble::tibble(group = c("a", "a", "a", "b", "b", "b"),
-                     value = c(1, NA , NA, 5, 6, NA)) 
-df
-df %>% 
-  dplyr::group_by(group) %>% 
-  dplyr::mutate(value_strict    = fillr::fill_missing_strict(value),
-                value_min       = fillr::fill_missing_min(value),
-                value_previous  = fillr::fill_missing_previous(value))
-
-
-```
