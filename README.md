@@ -66,3 +66,45 @@ fill_missing_previous(c(1, NA, 1, 2, NA, NA))
 
 Fillr is best used within a grouped data frame. You can use the
 `fill_missing_` functions to fill the missing values within the groups.
+
+``` r
+library(tibble)
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+
+df <-tibble(group = c("a", "a", "a", "b", "b", "b"),
+            value = c(NA, 1 , NA, 5, 6, NA)) 
+df
+#> # A tibble: 6 x 2
+#>   group value
+#>   <chr> <dbl>
+#> 1 a        NA
+#> 2 a         1
+#> 3 a        NA
+#> 4 b         5
+#> 5 b         6
+#> 6 b        NA
+
+df %>% 
+  group_by(group) %>% 
+  mutate(value_strict    = fill_missing_strict(value),
+         value_min       = fill_missing_min(value),
+         value_previous  = fill_missing_previous(value))
+#> # A tibble: 6 x 5
+#> # Groups:   group [2]
+#>   group value value_strict value_min value_previous
+#>   <chr> <dbl>        <dbl>     <dbl>          <dbl>
+#> 1 a        NA            1         1             NA
+#> 2 a         1            1         1              1
+#> 3 a        NA            1         1              1
+#> 4 b         5            5         5              5
+#> 5 b         6            6         6              6
+#> 6 b        NA           NA         5              6
+```
