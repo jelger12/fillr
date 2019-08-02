@@ -68,17 +68,13 @@ Fillr is best used within a grouped data frame. You can use the
 `fill_missing_` functions to fill the missing values within the groups.
 
 ``` r
+# Use tibble and dplyr for this example
 library(tibble)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
+```
 
+``` r
+# Create a tibble with missing values
 df <-tibble(group = c("a", "a", "a", "b", "b", "b"),
             value = c(NA, 1 , NA, 5, 6, NA)) 
 df
@@ -92,6 +88,7 @@ df
 #> 5 b         6
 #> 6 b        NA
 
+# Use fillr functions to fill the missing data 
 df %>% 
   group_by(group) %>% 
   mutate(value_strict    = fill_missing_strict(value),
