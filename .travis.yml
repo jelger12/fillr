@@ -10,6 +10,8 @@ r:
 
 r_packages:
   - covr
+  - tibble
+  - dplyr
 
 before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
 
