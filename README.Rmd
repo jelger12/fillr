@@ -22,28 +22,52 @@ Fillr is an R package. The goal of fillr is to edit vectors to fill missing valu
 
 ## Installation
 
-You can install fillr from github with:
+Fillr is on CRAN, you can install the stable release using
+``` r
+intall.packages("fillr")
+```
+
+Alternatively, you can install the development version from github with
 
 ``` r
 devtools::install_github("jelger12/fillr")
 ```
 
 ## Example
-
+```{r library, message=FALSE, warning=FALSE, include=FALSE}
+library(tibble)
+library(dplyr)
+```
 When you want to fill values in a vector with another value, the fillr functions can be used to impute all NA values based on some set rules.
 
-Fill the NA with the minimum, maximum or last value
-```{r example1}
+Fill the NA values with the minimum, maximum or last value
+```{r example_min_max_last}
 fillr::fill_missing_min(c(1, 2, 1, 1, NA))
 fillr::fill_missing_max(c(1, 2, 1, 1, NA))
 fillr::fill_missing_last(c(1, NA, 1, 2, NA))
 ```
-Fill the NA with the same value, only when all non-NA values are the same
-```{r example2}
+Fill the NA values with the same value, only when all non-NA values are the same
+```{r example_strict}
 fillr::fill_missing_strict(c(1, NA, 1, 1, NA))
 fillr::fill_missing_strict(c("a", NA, "a", "a", NA))
 ```
-Fill the NA with the previous value (repeating with multiple repeating NA)
-```{r example3}
+Fill the NA values with the previous value (repeating with multiple repeating NA values)
+```{r example_previous}
 fillr::fill_missing_previous(c(1, NA, 1, 2, NA, NA))
+```
+
+## Example within a grouped data frame
+Fillr is best used within a grouped data frame. You can use the `fill_missing_` functions to fill the missing values within the groups.
+
+```{r example_df}
+df <- tibble::tibble(group = c("a", "a", "a", "b", "b", "b"),
+                     value = c(1, NA , NA, 5, 6, NA)) 
+df
+df %>% 
+  dplyr::group_by(group) %>% 
+  dplyr::mutate(value_strict    = fillr::fill_missing_strict(value),
+                value_min       = fillr::fill_missing_min(value),
+                value_previous  = fillr::fill_missing_previous(value))
+
+
 ```
