@@ -62,6 +62,13 @@ fill_missing_previous(c(1, NA, 1, 2, NA, NA))
 #> [1] 1 1 1 2 2 2
 ```
 
+Fill missing values given the observed interval within the vector
+
+``` r
+fill_missing_interval(c(NA, NA, 2, 4, NA, NA))
+#> [1] -2  0  2  4  6  8
+```
+
 ## Example within a grouped data frame
 
 Fillr is best used within a grouped data frame. You can use the
