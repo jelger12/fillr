@@ -16,6 +16,10 @@ test_that("filling works for negative values", {
     expect_equal(fill_missing_interval(c(NA,NA,1,2)), c(-1,0,1,2))
 })
 
+test_that("filling doesn't happen when no repeating interval is measured  ", {
+    expect_equal(fill_missing_interval(c(1,NA,NA,4)), c(1,NA,NA,4))
+})
+
 test_that("filling doesn't happen when interval is not equal between values", {
     expect_equal(fill_missing_interval(c(1,2,4,NA)),c(1,2,4,NA))
 })

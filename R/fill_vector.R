@@ -73,7 +73,7 @@ fill_vector_interval <- function(x) {
     vector_interval <- unique(stats::na.omit(vector_intervals))
     ## If the interval is not the same for each item, return the the x: don't
     ## fill this vector
-    if (length(vector_interval) > 1) {
+    if (length(vector_interval) != 1) {
         return(x)
     }
 

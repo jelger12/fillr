@@ -20,5 +20,6 @@ a filled vector
 Fill all missing values for an interval observed in the vector
 }
 \examples{
-fill_missing_strict(c(NA, 1))
+fill_missing_interval(c(NA, 1, 2, NA))
+fill_missing_interval(c(NA, 10, 20, NA))
 }

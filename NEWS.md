@@ -1,6 +1,7 @@
 # fillr (development version)
 
 * Update `README.Rmd` file
+* Added fill_missing_interval to fill missing values in an interval: 
 
 # fillr 0.1.1
 
