@@ -1,6 +1,6 @@
 # fillr (development version)
 
-* Update readme file
+* Update `README.Rmd` file
 
 # fillr 0.1.1
 

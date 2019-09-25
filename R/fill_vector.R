@@ -54,5 +54,3 @@ fill_vector_previous <- function(x) {
     ## repeat the value at the determined positions
     rep(x[position_not_na], times = rep_times)
 }
-
-
