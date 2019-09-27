@@ -88,8 +88,15 @@ fill_vector_interval <- function(x) {
     ## the first known value and the number of NA values before that value
     value_pos_1 <- first_value - number_na_start * vector_interval
 
-    ## return the sequence
-    seq(value_pos_1, length.out = length(x), by = vector_interval)
+    ## Create the sequence
+    x_new <- seq(value_pos_1, length.out = length(x), by = vector_interval)
+
+    ## Test whether the sequence of all non-missing values in x is identical
+    ## tot the new vector
+    if (!identical(x[which(!is.na(x))], x_new[which(!is.na(x))])) {
+        return(x)
+    }
+    x_new
 
 }
 
