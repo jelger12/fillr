@@ -11,7 +11,8 @@ fill_missing <- function(x, min_known_n = NULL, min_known_p = NULL, type) {
                           "min",
                           "max",
                           "strict",
-                          "previous"))
+                          "previous",
+                          "interval"))
 
     ## Check if missing values can and should be filled
     if(!check_some_missing(x)) {
@@ -39,6 +40,8 @@ fill_missing <- function(x, min_known_n = NULL, min_known_p = NULL, type) {
         return(fill_vector_strict(x, x_na_omit))
     } else if (type == "previous") {
         return(fill_vector_previous(x))
+    } else if (type == "interval") {
+        return(fill_vector_interval(x))
     }
 
 
