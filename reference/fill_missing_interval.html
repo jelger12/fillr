@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • fillr</title>
+<title>Fill missing interval — fill_missing_interval • fillr</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,9 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Fill missing interval — fill_missing_interval" />
+<meta property="og:description" content="Fill all missing values for an interval observed in the vector" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -101,49 +103,50 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+    <h1>Fill missing interval</h1>
+    
+    <div class="hidden name"><code>fill_missing_interval.Rd</code></div>
     </div>
 
-    <div id="fillr-development-version" class="section level1">
-<h1 class="page-header">
-<a href="#fillr-development-version" class="anchor"></a>fillr (development version)<small> Unreleased </small>
-</h1>
-<ul>
-<li>Update <code>README.Rmd</code> file</li>
-<li>Added fill_missing_interval to fill missing values in an interval:</li>
-</ul>
-</div>
-    <div id="fillr-0-1-1" class="section level1">
-<h1 class="page-header">
-<a href="#fillr-0-1-1" class="anchor"></a>fillr 0.1.1<small> 2019-08-02 </small>
-</h1>
-<ul>
-<li>Spell check</li>
-</ul>
-</div>
-    <div id="fillr-0-1-0" class="section level1">
-<h1 class="page-header">
-<a href="#fillr-0-1-0" class="anchor"></a>fillr 0.1.0<small> Unreleased </small>
-</h1>
-<ul>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-<li>Travis file updated to check for different releases</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Fill all missing values for an interval observed in the vector</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>fill_missing_interval</span>(<span class='no'>x</span>, <span class='kw'>min_known_n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>min_known_p</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>The vector to fill</p></td>
+    </tr>
+    <tr>
+      <th>min_known_n</th>
+      <td><p>numeric value: the minimum number of not-missing values</p></td>
+    </tr>
+    <tr>
+      <th>min_known_p</th>
+      <td><p>numeric value between 0 and 1: the minimum fraction of not-missing values</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a filled vector</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>fill_missing_interval</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1] 0 1 2 3</div><div class='input'><span class='fu'>fill_missing_interval</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1]  0 10 20 30</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#fillr-development-version">development version</a></li>
-        <li><a href="#fillr-0-1-1">0.1.1</a></li>
-        <li><a href="#fillr-0-1-0">0.1.0</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 
